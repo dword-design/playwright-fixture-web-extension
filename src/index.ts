@@ -1,3 +1,5 @@
+// Source: https://github.com/wxt-dev/examples/blob/main/examples/playwright-e2e-testing/e2e/fixtures.ts
+
 import path from 'node:path';
 
 import {
