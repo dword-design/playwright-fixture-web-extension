@@ -1,1 +1,6 @@
-"@dword-design/playwright-fixture"
+{
+  "depcheckConfig": {
+    "ignoreMatches": ["@playwright/browser-chromium"]
+  },
+  "name": "@dword-design/playwright-fixture"
+}
