@@ -1,0 +1,54 @@
+{
+  "name": "@dword-design/playwright-fixture-web-extension",
+  "version": "0.0.1",
+  "repository": "dword-design/playwright-fixture-web-extension",
+  "funding": "https://github.com/sponsors/dword-design",
+  "license": "MIT",
+  "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "checkUnknownFiles": "base checkUnknownFiles",
+    "commit": "base commit",
+    "depcheck": "base depcheck",
+    "dev": "base dev",
+    "lint": "base lint",
+    "prepare": "base prepare",
+    "prepublishOnly": "base prepublishOnly",
+    "test": "base test",
+    "typecheck": "base typecheck",
+    "verify": "base verify"
+  },
+  "devDependencies": {
+    "@dword-design/base": "^16.1.4",
+    "@dword-design/base-config-playwright-fixture": "^1.0.0",
+    "@dword-design/base-config-web-extension": "^5.0.2",
+    "@playwright/test": "^1.57.0",
+    "@types/express": "^5.0.6",
+    "depcheck-package-name": "^5.0.0",
+    "endent": "npm:@dword-design/endent@^1.4.7",
+    "execa": "^9.6.1",
+    "express": "^5.2.1",
+    "get-port": "^7.1.0",
+    "output-files": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@playwright/test": "^1"
+  },
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
