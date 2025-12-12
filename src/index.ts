@@ -1,13 +1,28 @@
 import path from 'node:path';
 
-import { type BrowserContext, chromium, test as base } from '@playwright/test';
+import {
+  type BrowserContext,
+  chromium,
+  test as base,
+  type Worker,
+} from '@playwright/test';
 
 const pathToExtension = path.resolve('dist/chrome');
 
 export const test = base.extend<{
   context: BrowserContext;
+  background: Worker;
   extensionId: string;
 }>({
+  background: async ({ context }, use) => {
+    let [background] = context.serviceWorkers();
+
+    if (!background) {
+      background = await context.waitForEvent('serviceworker');
+    }
+
+    await use(background);
+  },
   context: async ({}, use) => {
     const context = await chromium.launchPersistentContext('', {
       args: [
@@ -20,13 +35,7 @@ export const test = base.extend<{
     await use(context);
     await context.close();
   },
-  extensionId: async ({ context }, use) => {
-    let [background] = context.serviceWorkers();
-
-    if (!background) {
-      background = await context.waitForEvent('serviceworker'); // For Windows
-    }
-
+  extensionId: async ({ background }, use) => {
     const extensionId = background.url().split('/')[2];
     await use(extensionId);
   },
