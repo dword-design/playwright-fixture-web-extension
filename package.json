@@ -40,7 +40,7 @@
     "execa": "^9.6.1",
     "express": "^5.2.1",
     "get-port": "^7.1.0",
-    "output-files": "^3.0.0"
+    "output-files": "^4.0.0"
   },
   "peerDependencies": {
     "@playwright/test": "^1"
